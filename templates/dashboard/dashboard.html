@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | TakeKnowLogic Automation{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div class="container">
+        <h1>Client Dashboard</h1>
+        <p>Live Monitoring & Data Analytics</p>
+    </div>
+</section>
+
+<section class="dashboard container">
+
+    <div class="dashboard-grid">
+
+        <div class="dash-card">
+            <h3>Total Devices</h3>
+            <p class="dash-value">08</p>
+        </div>
+
+        <div class="dash-card">
+            <h3>Active Systems</h3>
+            <p class="dash-value">06</p>
+        </div>
+
+        <div class="dash-card">
+            <h3>Alerts</h3>
+            <p class="dash-value warning">02</p>
+        </div>
+
+        <div class="dash-card">
+            <h3>Energy Usage</h3>
+            <p class="dash-value">1240 kWh</p>
+        </div>
+
+    </div>
+
+    <!-- Chart Placeholder -->
+    <div class="dashboard-chart">
+        <h2>Energy Consumption Overview</h2>
+        <canvas id="energyChart"></canvas>
+    </div>
+
+</section>
+
+{% endblock %}
