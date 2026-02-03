@@ -5,14 +5,14 @@ import smtplib
 from email.mime.text import MIMEText
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
+# ================= LOAD ENV =================
 load_dotenv()
 
-# Flask app
+# ================= FLASK APP =================
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "takeknowlogic-secret-key")
 
-# Database configuration from environment variables
+# ================= DATABASE CONFIG =================
 DB_CONFIG = {
     "host": os.environ.get("DB_HOST"),
     "user": os.environ.get("DB_USER"),
@@ -20,14 +20,12 @@ DB_CONFIG = {
     "database": os.environ.get("DB_NAME")
 }
 
-# Gmail credentials from environment variables
+# ================= EMAIL CONFIG =================
 GMAIL_USER = os.environ.get("GMAIL_USER")
 GMAIL_PASS = os.environ.get("GMAIL_PASS")
 
-
 # ================= EMAIL FUNCTIONS =================
 def send_admin_email(name, email, phone, message):
-    """Send an email to admin when a new contact form is submitted."""
     try:
         msg = MIMEText(f"""
 New Contact Enquiry
@@ -53,7 +51,6 @@ Message:
 
 
 def send_auto_reply(name, to_email):
-    """Send an automatic reply to the user."""
     try:
         msg = MIMEText(f"""
 Dear {name},
@@ -76,10 +73,7 @@ TakeKnowLogic Automation
     except Exception as e:
         print("ERROR sending auto-reply:", e)
 
-
 # ================= ROUTES =================
-
-# ROOT ROUTE
 @app.route("/")
 def root():
     return redirect("/contact")
@@ -109,11 +103,11 @@ def contact():
         message = request.form.get("message")
 
         try:
-            # Save inquiry to database
+            # Save to database
             conn = mysql.connector.connect(**DB_CONFIG)
             cursor = conn.cursor()
             cursor.execute(
-                "INSERT INTO contact_inquiries (name,email,phone,message) VALUES (%s,%s,%s,%s)",
+                "INSERT INTO contact_inquiries (name, email, phone, message) VALUES (%s, %s, %s, %s)",
                 (name, email, phone, message)
             )
             conn.commit()
@@ -132,8 +126,7 @@ def contact():
 
     return render_template("contact.html")
 
-
 # ================= RUN APP =================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=False)
