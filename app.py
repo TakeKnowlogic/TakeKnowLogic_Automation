@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request
 import mysql.connector
 import smtplib
 from email.mime.text import MIMEText
@@ -17,7 +17,7 @@ DB_CONFIG = {
     "host": os.environ.get("DB_HOST"),
     "user": os.environ.get("DB_USER"),
     "password": os.environ.get("DB_PASSWORD"),
-    "database": os.environ.get("DB_NAME")
+    "database": os.environ.get("DB_NAME"),
 }
 
 # ================= EMAIL CONFIG =================
@@ -30,9 +30,9 @@ def send_admin_email(name, email, phone, message):
         msg = MIMEText(f"""
 New Contact Enquiry
 
-Name: {name}
-Email: {email}
-Phone: {phone}
+Name   : {name}
+Email  : {email}
+Phone  : {phone}
 
 Message:
 {message}
@@ -56,7 +56,7 @@ def send_auto_reply(name, to_email):
 Dear {name},
 
 Thank you for contacting TakeKnowLogic Automation.
-We will contact you shortly.
+Our team will get back to you shortly.
 
 Regards,
 TakeKnowLogic Automation
@@ -73,10 +73,12 @@ TakeKnowLogic Automation
     except Exception as e:
         print("ERROR sending auto-reply:", e)
 
+
 # ================= ROUTES =================
+
 @app.route("/")
-def root():
-    return redirect("/contact")
+def home():
+    return render_template("index.html")
 
 
 @app.route("/services")
@@ -103,18 +105,21 @@ def contact():
         message = request.form.get("message")
 
         try:
-            # Save to database
             conn = mysql.connector.connect(**DB_CONFIG)
             cursor = conn.cursor()
+
             cursor.execute(
-                "INSERT INTO contact_inquiries (name, email, phone, message) VALUES (%s, %s, %s, %s)",
-                (name, email, phone, message)
+                """
+                INSERT INTO contact_inquiries (name, email, phone, message)
+                VALUES (%s, %s, %s, %s)
+                """,
+                (name, email, phone, message),
             )
+
             conn.commit()
             cursor.close()
             conn.close()
 
-            # Send emails
             send_admin_email(name, email, phone, message)
             send_auto_reply(name, email)
 
@@ -125,6 +130,7 @@ def contact():
             return render_template("contact.html", error=True)
 
     return render_template("contact.html")
+
 
 # ================= RUN APP =================
 if __name__ == "__main__":

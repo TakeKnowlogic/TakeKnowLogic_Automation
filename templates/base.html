@@ -11,17 +11,17 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <!-- Chart.js -->
+    <!-- Chart.js (optional – safe to keep) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
     <div class="container nav-content">
         <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="TakeKnowLogic Logo">
             <span>TakeKnowLogic Automation</span>
         </div>
 
@@ -37,18 +37,18 @@
     </div>
 </header>
 
-<!-- PAGE CONTENT -->
+<!-- ================= PAGE CONTENT ================= -->
 <main>
     {% block content %}{% endblock %}
 </main>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
     <div class="footer-container">
 
         <div class="footer-col about-col">
             <div class="footer-brand">
-                <img src="{{ url_for('static', filename='images/logo.png') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
                 <h3>TakeKnowLogic Automation</h3>
             </div>
             <p>
