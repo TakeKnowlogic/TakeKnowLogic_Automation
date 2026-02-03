@@ -1,21 +1,35 @@
 import os
 from flask import Flask, render_template, request, redirect
 import mysql.connector
-from db_config import DB_CONFIG
 import smtplib
 from email.mime.text import MIMEText
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Flask app
 app = Flask(__name__)
-app.secret_key = "takeknowlogic-secret-key"
+app.secret_key = os.environ.get("SECRET_KEY", "takeknowlogic-secret-key")
+
+# Database configuration from environment variables
+DB_CONFIG = {
+    "host": os.environ.get("DB_HOST"),
+    "user": os.environ.get("DB_USER"),
+    "password": os.environ.get("DB_PASSWORD"),
+    "database": os.environ.get("DB_NAME")
+}
+
+# Gmail credentials from environment variables
+GMAIL_USER = os.environ.get("GMAIL_USER")
+GMAIL_PASS = os.environ.get("GMAIL_PASS")
+
 
 # ================= EMAIL FUNCTIONS =================
-# (Keep them, but we will call them safely)
-
 def send_admin_email(name, email, phone, message):
-    sender = "tkla3006@gmail.com"
-    password = "jtxahtythdyprdkg"  # later move to ENV variable
-
-    msg = MIMEText(f"""
+    """Send an email to admin when a new contact form is submitted."""
+    try:
+        msg = MIMEText(f"""
 New Contact Enquiry
 
 Name: {name}
@@ -25,23 +39,23 @@ Phone: {phone}
 Message:
 {message}
 """)
+        msg["Subject"] = "New Enquiry | TakeKnowLogic"
+        msg["From"] = GMAIL_USER
+        msg["To"] = GMAIL_USER
 
-    msg["Subject"] = "New Enquiry | TakeKnowLogic"
-    msg["From"] = sender
-    msg["To"] = sender
-
-    server = smtplib.SMTP("smtp.gmail.com", 587)
-    server.starttls()
-    server.login(sender, password)
-    server.send_message(msg)
-    server.quit()
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login(GMAIL_USER, GMAIL_PASS)
+        server.send_message(msg)
+        server.quit()
+    except Exception as e:
+        print("ERROR sending admin email:", e)
 
 
 def send_auto_reply(name, to_email):
-    sender = "tkla3006@gmail.com"
-    password = "jtxahtythdyprdkg"
-
-    msg = MIMEText(f"""
+    """Send an automatic reply to the user."""
+    try:
+        msg = MIMEText(f"""
 Dear {name},
 
 Thank you for contacting TakeKnowLogic Automation.
@@ -50,21 +64,22 @@ We will contact you shortly.
 Regards,
 TakeKnowLogic Automation
 """)
+        msg["Subject"] = "Enquiry Received"
+        msg["From"] = GMAIL_USER
+        msg["To"] = to_email
 
-    msg["Subject"] = "Enquiry Received"
-    msg["From"] = sender
-    msg["To"] = to_email
-
-    server = smtplib.SMTP("smtp.gmail.com", 587)
-    server.starttls()
-    server.login(sender, password)
-    server.send_message(msg)
-    server.quit()
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login(GMAIL_USER, GMAIL_PASS)
+        server.send_message(msg)
+        server.quit()
+    except Exception as e:
+        print("ERROR sending auto-reply:", e)
 
 
 # ================= ROUTES =================
 
-# ROOT ROUTE (VERY IMPORTANT FOR RENDER)
+# ROOT ROUTE
 @app.route("/")
 def root():
     return redirect("/contact")
@@ -118,7 +133,7 @@ def contact():
     return render_template("contact.html")
 
 
-# ================= RUN APP (RENDER SAFE) =================
+# ================= RUN APP =================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port, debug=True)
