@@ -14,12 +14,33 @@
 <section class="container" style="padding:80px 0;">
     <div class="service-detail-grid">
 
-        <div class="detail-card">Energy Monitoring System</div>
-        <div class="detail-card">Production Monitoring</div>
-        <div class="detail-card">Predictive Maintenance</div>
-        <div class="detail-card">Custom IoT Dashboards</div>
-        <div class="detail-card">Machine Automation</div>
-        <div class="detail-card">Plant Digitalization</div>
+        <a href="{{ url_for('solution_detail', name='energy') }}" class="detail-card">
+            Energy Monitoring System
+        </a>
+
+        <a href="{{ url_for('solution_detail', name='repairing') }}" class="detail-card">
+            Repairing Solutions
+        </a>
+
+        <a href="{{ url_for('solution_detail', name='predictive') }}" class="detail-card">
+            Predictive Maintenance
+        </a>
+
+        <a href="{{ url_for('solution_detail', name='iot') }}" class="detail-card">
+            IoT Solutions
+        </a>
+
+        <a href="{{ url_for('solution_detail', name='machine') }}" class="detail-card">
+            Machine Automation
+        </a>
+
+        <a href="{{ url_for('solution_detail', name='commissioning') }}" class="detail-card">
+            Quick Commissioning
+        </a>
+
+        <a href="{{ url_for('solution_detail', name='automation') }}" class="detail-card">
+            Automation Solutions
+        </a>
 
     </div>
 </section>

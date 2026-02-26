@@ -14,7 +14,33 @@
     <!-- Chart.js (optional – safe to keep) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('growthChart');
+if(ctx){
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['2021','2022','2023','2024','2025'],
+        datasets: [{
+            label: 'Projects Growth',
+            data: [20, 40, 65, 95, 150],
+            borderColor: '#00E5FF',
+            backgroundColor: 'rgba(0,229,255,0.1)',
+            tension: 0.4,
+            fill: true
+        }]
+    },
+    options: {
+        plugins: { legend: { labels: { color: '#fff' }}},
+        scales: {
+            x: { ticks: { color: '#fff' }},
+            y: { ticks: { color: '#fff' }}
+        }
+    }
+});
+}
+</script>
 <body>
 
 <!-- ================= NAVBAR ================= -->

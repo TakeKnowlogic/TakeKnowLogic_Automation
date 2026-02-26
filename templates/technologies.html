@@ -14,17 +14,22 @@
 <section class="container" style="padding:80px 0;">
     <div class="service-detail-grid">
 
-        <div class="detail-card">Siemens PLC / HMI</div>
-        <div class="detail-card">Allen Bradley</div>
-        <div class="detail-card">Schneider Electric</div>
-        <div class="detail-card">Mitsubishi</div>
-        <div class="detail-card">Omron</div>
-        <div class="detail-card">Industrial Robotics</div>
-        <div class="detail-card">Python</div>
-        <div class="detail-card">MQTT</div>
-        <div class="detail-card">SQL / Databases</div>
-        <div class="detail-card">Cloud Dashboards</div>
+        <a href="{{ url_for('technology_detail', name='plc') }}" class="detail-card">PLC</a>
 
+        <a href="{{ url_for('technology_detail', name='hmi') }}" class="detail-card">HMI</a>
+
+        <a href="{{ url_for('technology_detail', name='energy') }}" class="detail-card">Energy Meter Technologies</a>
+
+        <a href="{{ url_for('technology_detail', name='iot') }}" class="detail-card">IOT & Cloud Technologies</a>
+
+        <a href="{{ url_for('technology_detail', name='predictive') }}" class="detail-card">Predictive Maintenance Technologies</a>
+
+        <a href="{{ url_for('technology_detail', name='dashboard') }}" class="detail-card">Dashboard & Reporting</a>
+
+        <a href="{{ url_for('technology_detail', name='server') }}" class="detail-card">Server & Deployment Technologies</a>
+
+        <a href="{{ url_for('technology_detail', name='security') }}" class="detail-card">Security</a>
+       
     </div>
 </section>
 

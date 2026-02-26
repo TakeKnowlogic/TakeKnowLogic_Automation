@@ -65,7 +65,7 @@
 <!-- TOP BAR -->
 <div class="topbar">
     <img src="{{ url_for('static', filename='images/logo.png') }}">
-    <a href="/logout" class="logout">Logout</a>
+    <a href="{{ url_for('logout') }}" class="logout">Logout</a>
 </div>
 
 <!-- MAIN -->
@@ -91,21 +91,51 @@
     <canvas id="chart"></canvas>
 
 </div>
-
 <script>
-const ctx = document.getElementById('chart');
+document.addEventListener("DOMContentLoaded", function () {
 
-new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: {{ labels | safe }},
-        datasets: [{
-            label: 'Enquiries',
-            data: {{ values | safe }},
-            borderWidth: 2,
-            borderColor: '#3b82f6'
-        }]
-    }
+    // Convert Flask data safely to JS variables
+    const chartLabels = JSON.parse('{{ labels | tojson | safe }}');
+    const chartValues = JSON.parse('{{ values | tojson | safe }}');
+
+    const ctx = document.getElementById('chart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: chartLabels,
+            datasets: [{
+                label: 'Enquiries',
+                data: chartValues,
+                borderWidth: 2,
+                borderColor: '#3b82f6',
+                backgroundColor: 'rgba(59,130,246,0.2)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: "#ffffff"
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: "#ffffff" },
+                    grid: { color: "rgba(255,255,255,0.1)" }
+                },
+                y: {
+                    ticks: { color: "#ffffff" },
+                    grid: { color: "rgba(255,255,255,0.1)" }
+                }
+            }
+        }
+    });
+
 });
 </script>
 

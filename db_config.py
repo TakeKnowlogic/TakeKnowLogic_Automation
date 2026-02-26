@@ -1,14 +1,7 @@
-import os
-
+# ================= DATABASE CONFIG (LOCAL) =================
 DB_CONFIG = {
-    "host": "150.241.245.137",
+    "host": "localhost",
     "user": "root",
-    "password": "Tkla@123",
-    "database": "takeknowlogic_db"
-}
-DB_CONFIG = {
-    "host": os.getenv("DB_HOST"),
-    "user": os.getenv("DB_USER"),
-    "password": os.getenv("DB_PASSWORD"),
-    "database": os.getenv("DB_NAME")
+   "password": "Tkla@123", # If using XAMPP (empty password)
+    "database": "takeknowlogic_db",
 }

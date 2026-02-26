@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="tech-detail-section">
+    <div class="container">
+        <h1>{{ tech.title }}</h1>
+
+        <p>{{ tech.description }}</p>
+
+        <ul>
+            {% for point in tech.points %}
+                <li>{{ point }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('technologies') }}" class="btn">
+            Back to Technologies
+        </a>
+    </div>
+</section>
+{% endblock %}

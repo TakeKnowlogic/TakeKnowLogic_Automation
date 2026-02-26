@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ service.title }} | TakeKnowLogic{% endblock %}
+
+{% block content %}
+
+<section class="service-detail">
+    <div class="container">
+
+        <h1>{{ service.title }}</h1>
+
+        <p>{{ service.description }}</p>
+
+        {% if service.sub_services %}
+            <h3>Our Services</h3>
+            <ul>
+                {% for key, sub in service.sub_services.items() %}
+                    <li>
+                        <a href="{{ request.path }}/{{ key }}">
+                            {{ sub.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if service.points %}
+            <h3>Details</h3>
+            <ul>
+                {% for point in service.points %}
+                    <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <a href="/contact" class="btn-primary">Get a Quote</a>
+
+    </div>
+</section>
+
+{% endblock %}

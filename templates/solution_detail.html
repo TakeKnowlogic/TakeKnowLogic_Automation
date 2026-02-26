@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ solution.title }} | TakeKnowLogic Automation{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div class="container">
+        <h1>{{ solution.title }}</h1>
+        <p>{{ solution.description }}</p>
+    </div>
+</section>
+
+<section class="container" style="padding:60px 0;">
+    <div class="tech-detail-box">
+
+        <h3>Key Features:</h3>
+
+        <ul>
+            {% for point in solution.points %}
+                <li>{{ point }}</li>
+            {% endfor %}
+        </ul>
+
+        <br>
+        <a href="{{ url_for('solutions') }}" class="btn">
+            ← Back to Solutions
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}
