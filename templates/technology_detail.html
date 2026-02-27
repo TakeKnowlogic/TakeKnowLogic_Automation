@@ -1,21 +1,36 @@
 {% extends "base.html" %}
 
+{% block title %}{{ tech.title }} | TakeKnowLogic Automation{% endblock %}
+
 {% block content %}
-<section class="tech-detail-section">
+
+<section class="page-header">
     <div class="container">
         <h1>{{ tech.title }}</h1>
-
         <p>{{ tech.description }}</p>
-
-        <ul>
-            {% for point in tech.points %}
-                <li>{{ point }}</li>
-            {% endfor %}
-        </ul>
-
-        <a href="{{ url_for('technologies') }}" class="btn">
-            Back to Technologies
-        </a>
     </div>
 </section>
+
+<section class="service-detail">
+    <div class="container">
+
+        <div class="back-button">
+            <a href="{{ url_for('technologies') }}" class="btn-back">
+                ← Back to Technologies
+            </a>
+        </div>
+
+        <div class="service-points">
+            <h3>Key Capabilities</h3>
+
+            <ul>
+                {% for point in tech.points %}
+                    <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</section>
+
 {% endblock %}

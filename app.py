@@ -20,7 +20,7 @@ DB_CONFIG = {
     "database": "takeknowlogic_db",
 }
 # ================= EMAIL CONFIG =================
-GMAIL_USER = "tkla3006@gmail.com"
+GMAIL_USER = "info.tkla@gmail.com"
 GMAIL_PASS = "jtxahtythdyprdkg"
 
 # ================= EMAIL FUNCTIONS =================
@@ -133,87 +133,101 @@ def contact():
 def technology_detail(name):
 
     tech_data = {
-        "plc": {
-            "title": "Programmable Logic Controller (PLC)",
-            "description": "PLC is an industrial digital computer used for automation of machinery and production systems.",
-            "points": [
-                "Siemens PLC Programming",
-                "Allen Bradley PLC",
-                "Delta PLC",
-                "Modbus Communication",
-                "Industrial Automation Solutions"
-            ]
-        },
-        "hmi": {
-            "title": "Human Machine Interface (HMI)",
-            "description": "HMI provides a graphical interface for operators to monitor and control industrial processes.",
-            "points": [
-                "Siemens HMI",
-                "Weintek HMI",
-                "SCADA Integration",
-                "Real-Time Monitoring"
-            ]
-        },
+       "plc": {
+    "title": "Programmable Logic Controllers (PLC)",
+    "description": "Programmable Logic Controllers (PLCs) are industrial-grade control systems used for reliable automation of machinery, process plants, and manufacturing systems.",
+    "points": [
+        "Siemens PLC (TIA Portal & Step 7)",
+        "Allen-Bradley PLC (Studio 5000 / RSLogix)",
+        "Delta & Mitsubishi PLC Platforms",
+        "Ladder Logic & Structured Text Programming",
+        "Modbus, Profinet & Ethernet/IP Communication",
+        "Process & Machine Control Automation"
+    ]
+},
+       "hmi": {
+    "title": "Human Machine Interface (HMI)",
+    "description": "HMI system provide real-time visualization, control, and monitoring of industrial processes through intuitive graphical interfaces.",
+    "points": [
+        "Siemens HMI Configuration",
+        "Weintek HMI Development",
+        "Alarm & Event Management",
+        "Real-Time Process Visualization",
+        "Remote Monitoring Capability"
+    ]
+},
         "energy": {
-            "title": "Energy Meter Technologies",
-            "description": "Advanced energy meters used for monitoring voltage, current, power, and consumption.",
-            "points": [
-                "3-Phase Energy Monitoring",
-                "Power Factor Analysis",
-                "Modbus Energy Meters",
-                "Data Logging Systems"
-            ]
-        },
-        "iot": {
-            "title": "IoT & Cloud Technologies",
-            "description": "Industrial IoT systems for remote monitoring and cloud-based analytics.",
-            "points": [
-                "MQTT Communication",
-                "Cloud Dashboards",
-                "Remote Monitoring",
-                "Data Analytics"
-            ]
-        },
+    "title": "Energy Metering & Power Monitoring Technologies",
+    "description": "Advanced energy metering technologies for monitoring electrical parameters, analyzing power quality, and optimizing industrial energy consumption.",
+    "points": [
+        "3-Phase Energy Monitoring Systems",
+        "Voltage, Current & Power Factor Analysis",
+        "Modbus & TCP/IP Energy Meters",
+        "Power Quality & Harmonics Monitoring",
+        "Energy Data Logging & Reporting",
+        "Demand & Load Analysis"
+    ]
+},
+"iot": {
+    "title": "Industrial IoT & Cloud Integration",
+    "description": "Industrial IoT technologies enabling secure data acquisition, cloud connectivity, and intelligent analytics for smart factory environments.",
+    "points": [
+        "MQTT & Industrial Communication Protocols",
+        "Cloud-Based Dashboards",
+        "Remote Equipment Monitoring",
+        "Edge Gateway Integration",
+        "Real-Time Alerts & Notifications",
+        "Industrial Data Analytics"
+    ]
+},
         "predictive": {
-            "title": "Predictive Maintenance",
-            "description": "AI-based monitoring to predict machine failures before breakdown.",
-            "points": [
-                "Vibration Monitoring",
-                "Temperature Analysis",
-                "Fault Detection",
-                "Condition Monitoring"
-            ]
-        },
-        "dashboard": {
-            "title": "Dashboard & Reporting",
-            "description": "Custom dashboards for industrial data visualization and reporting.",
-            "points": [
-                "Real-Time Charts",
-                "PDF Reports",
-                "Historical Data",
-                "KPI Monitoring"
-            ]
-        },
-        "server": {
-            "title": "Server & Deployment",
-            "description": "Deployment of industrial applications on secure servers.",
-            "points": [
-                "Flask Deployment",
-                "Gunicorn",
-                "Linux Server Setup",
-                "Database Integration"
-            ]
-        },
+    "title": "Predictive Maintenance Technologies",
+    "description": "Condition-based monitoring technologies designed to predict potential machine failures and improve equipment reliability.",
+    "points": [
+        "Vibration Monitoring Systems",
+        "Temperature & Current Analysis",
+        "Machine Health Diagnostics",
+        "Condition Monitoring Sensors",
+        "Early Fault Detection Algorithms",
+        "Downtime Prevention Strategies"
+    ]
+},
+"dashboard": {
+    "title": "Industrial Dashboards & Reporting Systems",
+    "description": "Custom-built industrial dashboards and reporting platforms for real-time performance monitoring and data-driven decision-making.",
+    "points": [
+        "Real-Time Data Visualization",
+        "KPI & OEE Monitoring",
+        "Automated PDF & Excel Reports",
+        "Historical Data Trend Analysis",
+        "Energy & Production Analytics",
+        "Customizable User Interface"
+    ]
+},
+       "server": {
+    "title": "Industrial Server & Application Deployment",
+    "description": "Secure deployment of industrial monitoring and automation applications on robust server infrastructures.",
+    "points": [
+        "Industrial Application Hosting",
+        "Linux-Based Server Configuration",
+        "Secure Database Integration",
+        "Cloud & On-Premise Deployment",
+        "System Backup & Recovery Planning",
+        "High Availability Architecture"
+    ]
+},
         "security": {
-            "title": "Security Systems",
-            "description": "Industrial cybersecurity and access control systems.",
-            "points": [
-                "User Authentication",
-                "Role-Based Access",
-                "Secure Communication",
-                "Data Encryption"
-            ]
-        }
+    "title": "Industrial Cybersecurity & System Protection",
+    "description": "Comprehensive cybersecurity solutions designed to protect industrial automation systems and critical infrastructure.",
+    "points": [
+        "Role-Based Access Control (RBAC)",
+        "Secure Communication Protocols",
+        "Data Encryption & Protection",
+        "User Authentication Systems",
+        "Network Security Configuration",
+        "Industrial Firewall Integration"
+    ]
+}
     }
 
     tech = tech_data.get(name)
@@ -228,82 +242,94 @@ def solution_detail(name):
 
     solution_data = {
 
-        "energy": {
-            "title": "Energy Monitoring System",
-            "description": "Complete industrial energy monitoring solution for real-time power tracking.",
-            "points": [
-                "Real-time Energy Monitoring",
-                "Power Quality Analysis",
-                "Historical Reports",
-                "Load Analysis & Optimization"
-            ]
-        },
+       "energy": {
+    "title": "Energy Monitoring & Management System",
+    "description": "Advanced industrial energy monitoring solution designed to track, analyze, and optimize power consumption across facilities for improved efficiency and cost reduction.",
+    "points": [
+        "Real-Time Voltage, Current & Power Monitoring",
+        "Power Quality & Harmonics Analysis",
+        "Energy Consumption Trend Reports",
+        "Maximum Demand Monitoring",
+        "Load Analysis & Optimization",
+        "Automated Energy Performance Reports"
+    ]
+},
 
         "repairing": {
-            "title": "Repairing Solutions",
-            "description": "Professional repair and maintenance services for industrial automation systems.",
-            "points": [
-                "PLC Repair",
-                "HMI Troubleshooting",
-                "Panel Maintenance",
-                "On-site Support"
-            ]
-        },
+    "title": "Industrial Automation Repair & Refurbishment",
+    "description": "Comprehensive repair and refurbishment solutions for industrial automation systems to restore performance and minimize downtime.",
+    "points": [
+        "PLC Diagnostics & Repair",
+        "HMI Troubleshooting",
+        "Drive & VFD Repair",
+        "Control Panel Fault Rectification",
+        "Component Replacement & Testing",
+        "On-Site & Remote Technical Support"
+    ]
+},
 
         "predictive": {
-            "title": "Predictive Maintenance",
-            "description": "Advanced monitoring to detect issues before machine breakdown.",
-            "points": [
-                "Vibration Monitoring",
-                "Temperature Tracking",
-                "Fault Detection",
-                "Downtime Reduction"
-            ]
-        },
+    "title": "Predictive Maintenance Solution",
+    "description": "Data-driven predictive maintenance system utilizing condition monitoring and analytics to detect potential equipment failures before breakdown occurs.",
+    "points": [
+        "Vibration & Condition Monitoring",
+        "Temperature & Current Analysis",
+        "Machine Health Diagnostics",
+        "Early Fault Detection Alerts",
+        "Downtime Reduction Strategies",
+        "Maintenance Planning Optimization"
+    ]
+},
 
         "iot": {
-            "title": "IoT Solutions",
-            "description": "Industrial IoT solutions for smart monitoring and cloud integration.",
-            "points": [
-                "Remote Monitoring",
-                "Cloud Dashboard",
-                "Real-Time Alerts",
-                "Data Analytics"
-            ]
-        },
+    "title": "Industrial IoT & Smart Monitoring Solutions",
+    "description": "Integrated Industrial IoT solutions enabling remote monitoring, cloud connectivity, and intelligent data-driven decision-making.",
+    "points": [
+        "Remote Equipment Monitoring",
+        "Cloud-Based Data Logging",
+        "Real-Time Alerts & Notifications",
+        "Custom KPI Dashboards",
+        "Edge Device & Gateway Integration",
+        "Secure Industrial Communication"
+    ]
+},
 
         "machine": {
-            "title": "Machine Automation",
-            "description": "Automation of industrial machines for improved efficiency and productivity.",
-            "points": [
-                "PLC Programming",
-                "Sensor Integration",
-                "Motor Control",
-                "Production Optimization"
-            ]
-        },
-
-        "commissioning": {
-            "title": "Quick Commissioning",
-            "description": "Fast and reliable commissioning of industrial automation systems.",
-            "points": [
-                "System Testing",
-                "On-site Configuration",
-                "Performance Validation",
-                "Operational Training"
-            ]
-        },
-
-        "automation": {
-            "title": "Automation Solutions",
-            "description": "Complete end-to-end automation solutions for industries.",
-            "points": [
-                "Control Panel Design",
-                "SCADA Systems",
-                "Industrial Networking",
-                "Customized Automation"
-            ]
-        }
+    "title": "Machine Automation Solutions",
+    "description": "Comprehensive automation of industrial machines to improve productivity, efficiency, and operational reliability.",
+    "points": [
+        "Custom PLC Programming",
+        "Sensor & Actuator Integration",
+        "Motor & Drive Control Systems",
+        "Production Line Automation",
+        "Cycle Time Optimization",
+        "Machine Performance Monitoring"
+    ]
+},
+"commissioning": {
+    "title": "System Commissioning & Validation",
+    "description": "Professional commissioning services ensuring reliable startup, validation, and performance optimization of industrial automation systems.",
+    "points": [
+        "System Functional Testing",
+        "On-Site Configuration & Setup",
+        "Performance Validation & Tuning",
+        "Safety & Compliance Verification",
+        "Documentation & Handover Support",
+        "Operator Training & Guidance"
+    ]
+},
+"automation": {
+    "title": "End-to-End Industrial Automation Solutions",
+    "description": "Complete automation solutions covering design, engineering, integration, and lifecycle support for industrial facilities.",
+    "points": [
+        "Control Panel Engineering & Design",
+        "PLC, HMI & SCADA Systems",
+        "Industrial Networking & Communication",
+        "Process Automation Solutions",
+        "Customized System Integration",
+        "Industry 4.0 Ready Architecture"
+    ]
+}
 
     }
 
@@ -326,42 +352,47 @@ def service_router(slug):
             "sub_services": {
                 "plc-programming": {
                     "title": "PLC Programming",
-                    "description": "Professional PLC programming for industrial automation.",
+                    "description": "Professional PLC programming services for machine automation, process control, and industrial systems using industry-standard platforms.",
                     "points": [
-                        "Siemens PLC",
-                        "Allen Bradley PLC",
-                        "Delta PLC",
-                        "Modbus Communication",
-                        "Machine Logic Development"
+                        "Siemens PLC (TIA Portal)",
+                        "Allen-Bradley PLC (Studio 5000)",
+                        "Delta & Mitsubishi PLC",
+                        "Ladder Logic & Structured Text Programming",
+                        "Modbus / Ethernet Communication Integration",
+                        "Machine Logic Development & Optimization"
                     ]
                 },
                 "hmi-development": {
                     "title": "HMI Development",
-                    "description": "Advanced HMI and SCADA development.",
+                    "description": "Advanced HMI interface development for real-time monitoring, control, and visualization of industrial processes.",
                     "points": [
-                        "Siemens HMI",
-                        "Weintek HMI",
-                        "SCADA Integration",
-                        "Real-Time Monitoring"
+                        "Siemens HMI Configuration",
+                        "Weintek HMI Development",
+                        "Alarm & Event Management",
+                        "Real-Time Data Visualization",
+                        "Remote Monitoring Setup"
                     ]
                 },
                 "control-panel-design": {
                     "title": "Control Panel Design",
-                    "description": "Industrial control panel design & engineering.",
+                    "description": "Industrial control panel design, engineering, and documentation compliant with safety and industry standards.",
                     "points": [
-                        "Electrical Drawing",
-                        "Panel Fabrication",
-                        "Component Selection",
-                        "Testing & Validation"
+                       "Electrical Schematic Design",
+                       "Panel Layout & GA Drawings",
+                       "Component Selection & Sizing",
+                       "PLC & Drive Panel Design",
+                       "Testing & Factory Acceptance Test (FAT)"
                     ]
                 },
                 "system-integration": {
                     "title": "System Integration",
-                    "description": "Complete automation system integration.",
+                    "description": "Complete automation system integration ensuring seamless communication between PLC, HMI, drives, and field instruments.",
                     "points": [
                         "PLC-HMI Integration",
-                        "Network Configuration",
-                        "Field Device Integration"
+                        "Industrial Network Configuration",
+                        "Field Instrument Integration",
+                        "VFD & Servo Drive Integration",
+                        "System Testing & Validation"
                     ]
                 }
             }
@@ -370,24 +401,27 @@ def service_router(slug):
         # ================= ROBOTICS =================
         "robotics": {
             "title": "Robotics",
-            "description": "Industrial robotics integration solutions.",
+            "description": "Industrial robotics automation solutions including robot programming, integration, and commissioning for manufacturing and material handling applications.",
             "sub_services": {
                 "robot-programming": {
                     "title": "Robot Programming",
                     "description": "Industrial robot programming.",
                     "points": [
-                        "Pick & Place Robots",
-                        "Welding Robots",
-                        "Material Handling"
+                       "Pick & Place Automation",
+                       "Welding & Assembly Applications",
+                       "Material Handling Systems",
+                       "Robot Path Optimization",
+                       "Cycle Time Improvement"
                     ]
                 },
                 "robot-integration": {
                     "title": "Robot Integration",
-                    "description": "Robot system integration services.",
+                    "description": "Integration of robotic systems with PLC-controlled automation lines and safety systems.",
                     "points": [
-                        "PLC Integration",
-                        "Vision System",
-                        "Safety Configuration"
+                        "PLC & Robot Communication Setup",
+                        "Vision System Integration",
+                        "Safety Interlocking Configuration",
+                        "Conveyor Synchronization"
                     ]
                 },
                 "robot-commissioning": {
@@ -396,7 +430,8 @@ def service_router(slug):
                     "points": [
                         "System Testing",
                         "Calibration",
-                        "Performance Validation"
+                        "Performance Validation",
+                        "Operator Training Support"
                     ]
                 }
             }
@@ -405,41 +440,46 @@ def service_router(slug):
         # ================= IOT =================
         "iot-data-analytics": {
             "title": "IoT & Data Analytics",
-            "description": "Industrial IoT and smart monitoring systems.",
+            "description": "Industrial IoT solutions enabling real-time monitoring, cloud connectivity, and data-driven decision-making for smart factories.",
             "sub_services": {
                 "iot-solutions": {
                     "title": "Industrial IoT Solutions",
-                    "description": "Smart IoT integration solutions.",
+                    "description": "Smart industrial IoT integration for remote monitoring and digital transformation.",
                     "points": [
-                        "Remote Monitoring",
-                        "Cloud Connectivity",
-                        "Real-Time Alerts"
+                       "Remote Equipment Monitoring",
+                       "Cloud-Based Data Logging",
+                       "Real-Time Alerts & Notifications",
+                       "Industrial Gateway Integration",
+                       "Edge Device Configuration"
                     ]
                 },
                 "cloud-dashboards": {
                     "title": "Cloud Dashboards",
-                    "description": "Real-time monitoring dashboards.",
+                    "description": "Custom cloud dashboards for KPI monitoring and performance tracking.",
                     "points": [
-                        "Data Visualization",
-                        "KPI Monitoring",
-                        "Custom Reports"
+                        "Live Data Visualization",
+                        "KPI & OEE Monitoring",
+                        "Custom Industrial Reports",
+                        "Energy Consumption Dashboards"
                     ]
                 },
                 "data-analytics": {
                     "title": "Data Analytics & Reporting",
-                    "description": "Industrial data analytics solutions.",
+                    "description": "Advanced industrial data analytics for performance improvement and operational insights.",
                     "points": [
-                        "Historical Reports",
-                        "Trend Analysis",
-                        "Performance Optimization"
+                         "Historical Trend Analysis",
+                         "Downtime Analysis",
+                         "Production Efficiency Reports",
+                         "Energy Performance Analysis"
                     ]
                 },
                 "predictive-maintenance": {
                     "title": "Predictive Maintenance",
-                    "description": "Machine health monitoring solutions.",
+                    "description": "Condition-based monitoring and predictive maintenance solutions to reduce unexpected breakdowns.",
                     "points": [
                         "Vibration Monitoring",
-                        "Temperature Tracking",
+                        "Temperature & Current Analysis",
+                        "Machine Health Diagnostics",
                         "Failure Prediction"
                     ]
                 }
@@ -453,7 +493,7 @@ def service_router(slug):
             "sub_services": {
                 "supply-automation-hardware": {
                     "title": "Supply of Automation Hardware",
-                    "description": "Supply of PLC, HMI and automation components.",
+                    "description": "Supply of industrial-grade automation hardware and electrical components.",
                     "points": [
                         "PLC & HMI Supply",
                         "Sensors & Drives",
@@ -462,20 +502,22 @@ def service_router(slug):
                 },
                 "electrical-installation": {
                     "title": "Electrical Installation",
-                    "description": "Professional electrical installation.",
+                    "description": "Professional electrical installation services for industrial automation systems.",
                     "points": [
-                        "Panel Installation",
-                        "Cable Laying",
-                        "Power Distribution"
+                      "Panel Installation & Wiring",
+                      "Cable Laying & Termination",
+                      "Power Distribution Setup",
+                      "Earthing & Safety Compliance"
                     ]
                 },
                 "testing-commissioning": {
                     "title": "Testing & Commissioning",
-                    "description": "System testing and validation.",
+                    "description": "System validation and commissioning to ensure reliable plant operations.",
                     "points": [
-                        "Load Testing",
-                        "Performance Validation",
-                        "Safety Checks"
+                     "Functional Testing",
+                     "Load Testing",
+                     "Performance Validation",
+                     "Safety & Compliance Checks"
                     ]
                 }
             }
@@ -484,31 +526,35 @@ def service_router(slug):
         # ================= MAINTENANCE & REPAIR =================
         "maintenance-repair": {
             "title": "Maintenance & Repair",
-            "description": "Reliable maintenance and repair services.",
+            "description": "Comprehensive maintenance and repair services to ensure uninterrupted industrial operations.",
             "sub_services": {
                 "equipment-repair": {
                     "title": "Industrial Equipment Repair",
-                    "description": "Repair services for automation equipment.",
+                    "description": "Repair and refurbishment services for industrial automation equipment.",
                     "points": [
-                        "PLC Repair",
-                        "HMI Troubleshooting",
-                        "Drive Repair"
+                        "PLC Troubleshooting & Repair",
+                        "HMI Diagnostics",
+                        "VFD & Drive Repair",
+                        "Control Panel Fault Analysis"
                     ]
                 },
                 "amc-services": {
                     "title": "AMC Services",
-                    "description": "Annual maintenance contracts.",
+                    "description": "Structured annual maintenance contracts for preventive and corrective maintenance.",
                     "points": [
                         "Preventive Maintenance",
-                        "Scheduled Inspection"
+                        "Scheduled Inspections",
+                        "Software Backup & Updates",
+                        "Priority Breakdown Support"
                     ]
                 },
                 "troubleshooting-support": {
                     "title": "Troubleshooting & Support",
-                    "description": "Quick breakdown support.",
+                    "description": "Fast and reliable breakdown support for industrial automation systems.",
                     "points": [
-                        "Remote Support",
-                        "On-site Diagnosis"
+                       "Remote Technical Support",
+                       "On-Site Diagnosis",
+                       "Emergency Response Service"
                     ]
                 }
             }
@@ -517,7 +563,7 @@ def service_router(slug):
         # ================= TRAINING =================
         "training": {
             "title": "Training Programs",
-            "description": "Professional automation training.",
+            "description": "Professional industrial automation training programs focused on practical and industry-oriented learning.",
             "sub_services": {
                 "plc-training": {
                     "title": "PLC Training",

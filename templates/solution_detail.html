@@ -11,21 +11,24 @@
     </div>
 </section>
 
-<section class="container" style="padding:60px 0;">
-    <div class="tech-detail-box">
+<section class="service-detail">
+    <div class="container">
 
-        <h3>Key Features:</h3>
+        <div class="back-button">
+            <a href="{{ url_for('solutions') }}" class="btn-back">
+                ← Back to Solutions
+            </a>
+        </div>
 
-        <ul>
-            {% for point in solution.points %}
-                <li>{{ point }}</li>
-            {% endfor %}
-        </ul>
+        <div class="service-points">
+            <h3>Key Features</h3>
 
-        <br>
-        <a href="{{ url_for('solutions') }}" class="btn">
-            ← Back to Solutions
-        </a>
+            <ul>
+                {% for point in solution.points %}
+                    <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+        </div>
 
     </div>
 </section>

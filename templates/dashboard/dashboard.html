@@ -6,8 +6,8 @@
 
 <section class="page-header">
     <div class="container">
-        <h1>Client Dashboard</h1>
-        <p>Live Monitoring & Data Analytics</p>
+        <h1>Client Monitoring Dashboard</h1>
+        <p>Live Energy Monitoring & Performance Analytics</p>
     </div>
 </section>
 
@@ -18,31 +18,72 @@
         <div class="dash-card">
             <h3>Total Devices</h3>
             <p class="dash-value">08</p>
+            <span class="dash-status">Operational</span>
         </div>
 
         <div class="dash-card">
             <h3>Active Systems</h3>
             <p class="dash-value">06</p>
+            <span class="dash-status">Running</span>
         </div>
 
         <div class="dash-card">
             <h3>Alerts</h3>
             <p class="dash-value warning">02</p>
+            <span class="dash-status warning">Attention Required</span>
         </div>
 
         <div class="dash-card">
             <h3>Energy Usage</h3>
             <p class="dash-value">1240 kWh</p>
+            <span class="dash-status">Today</span>
         </div>
 
     </div>
 
-    <!-- Chart Placeholder -->
     <div class="dashboard-chart">
         <h2>Energy Consumption Overview</h2>
         <canvas id="energyChart"></canvas>
     </div>
 
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const ctx = document.getElementById('energyChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+            datasets: [{
+                label: 'Energy (kWh)',
+                data: [120,150,180,140,200,170,220],
+                backgroundColor: 'rgba(0,229,255,0.5)',
+                borderColor: '#00E5FF',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { labels: { color: "#ffffff" } }
+            },
+            scales: {
+                x: {
+                    ticks: { color: "#ffffff" },
+                    grid: { color: "rgba(255,255,255,0.1)" }
+                },
+                y: {
+                    ticks: { color: "#ffffff" },
+                    grid: { color: "rgba(255,255,255,0.1)" }
+                }
+            }
+        }
+    });
+
+});
+</script>
 
 {% endblock %}

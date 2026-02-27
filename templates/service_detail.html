@@ -1,39 +1,50 @@
 {% extends "base.html" %}
 
-{% block title %}{{ service.title }} | TakeKnowLogic{% endblock %}
+{% block title %}{{ service.title }} | TakeKnowLogic Automation{% endblock %}
 
 {% block content %}
 
 <section class="service-detail">
     <div class="container">
 
+        <!-- BACK BUTTON -->
+        <div class="back-button">
+            <a href="/services" class="btn-back">← Back to Services</a>
+        </div>
+
         <h1>{{ service.title }}</h1>
 
-        <p>{{ service.description }}</p>
+        <p class="service-description">
+            {{ service.description }}
+        </p>
 
         {% if service.sub_services %}
-            <h3>Our Services</h3>
-            <ul>
-                {% for key, sub in service.sub_services.items() %}
-                    <li>
-                        <a href="{{ request.path }}/{{ key }}">
+            <div class="sub-services">
+                <h3>Our Services</h3>
+                <div class="service-detail-grid">
+                    {% for key, sub in service.sub_services.items() %}
+                        <a href="{{ request.path }}/{{ key }}" class="detail-card">
                             {{ sub.title }}
                         </a>
-                    </li>
-                {% endfor %}
-            </ul>
+                    {% endfor %}
+                </div>
+            </div>
         {% endif %}
 
         {% if service.points %}
-            <h3>Details</h3>
-            <ul>
-                {% for point in service.points %}
-                    <li>{{ point }}</li>
-                {% endfor %}
-            </ul>
+            <div class="service-points">
+                <h3>Service Highlights</h3>
+                <ul>
+                    {% for point in service.points %}
+                        <li>✔ {{ point }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         {% endif %}
 
-        <a href="/contact" class="btn-primary">Get a Quote</a>
+        <div style="margin-top:40px;">
+            <a href="/contact" class="btn-primary">Request a Quote</a>
+        </div>
 
     </div>
 </section>
